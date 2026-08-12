@@ -1,5 +1,3 @@
-# Mantine Vite template
+# Simple Vite Example
 
-Get started with the template by clicking `Use this template` button on the top of the page.
-
-[Documentation](https://mantine.dev/guides/vite/)
+To get started, clone this repo, run `npm i` followed by `npm run dev` and then go to http://localhost:5173.
