@@ -1,29 +1,21 @@
-import { Code, Divider, List, Text, Title } from '@mantine/core';
+import { Button, Collapse, Text, Title } from '@mantine/core';
 import { createFileRoute } from '@tanstack/react-router'
+import { ProductInstructions } from '../components/ProductInstructions';
+import { useDisclosure } from '@mantine/hooks';
 
 export const Route = createFileRoute('/products')({
     component: RouteComponent,
 })
 
 function RouteComponent() {
+    const [expanded, { toggle }] = useDisclosure(false);
     return (
         <div>
             <Title order={1}>Products</Title>
-            <Title order={2}>Instructions</Title>
-            <List type="ordered">
-                <List.Item>Update this page to show a table of products.</List.Item>
-                <List.Item>The list of products can be retrieved from <Code>https://dummyjson.com/products</Code></List.Item>
-                <List.Item>
-                    Each row will contain one product showing the following attributes:
-                    <List type="unordered">
-                        <List.Item>Title</List.Item>
-                        <List.Item>Price</List.Item>
-                        <List.Item>Tags</List.Item>
-                        <List.Item>Number of reviews</List.Item>
-                    </List>
-                </List.Item>
-            </List>
-            <Divider my="md" />
+            <Button onClick={toggle}>{expanded ? 'Hide' : 'Show'} instructions</Button>
+            <Collapse expanded={expanded}>
+                <ProductInstructions />
+            </Collapse>
             <Title order={2}>Table of Products</Title>
             <Text>Create the table here:</Text>
         </div>
