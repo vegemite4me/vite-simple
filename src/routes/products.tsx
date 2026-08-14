@@ -4,10 +4,10 @@ import { ProductInstructions } from '../components/ProductInstructions';
 import { useDisclosure } from '@mantine/hooks';
 
 export const Route = createFileRoute('/products')({
-    component: RouteComponent,
+    component: Products,
 })
 
-function RouteComponent() {
+function Products() {
     const [expanded, { toggle }] = useDisclosure(false);
     return (
         <div>
